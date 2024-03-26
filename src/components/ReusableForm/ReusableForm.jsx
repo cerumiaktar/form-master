@@ -1,15 +1,12 @@
 
 
-const SimpleForm = () => {
+const ReusableForm = ({formTitle, submitBtnText = 'Submit'}) => {
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(e.target.name.value);
-        console.log(e.target.email.value);
-        console.log(e.target.phone.value);
-        console.log('form submitted');
     }
     return (
         <div>
+            <h2>{formTitle}</h2>
             <form onSubmit={handleSubmit}>
                 <input type='text' name="name"/>
                 <br/>
@@ -17,10 +14,10 @@ const SimpleForm = () => {
                 <br/>
                 <input type="password" name="password"/>
                 <br />
-                <input type="submit" value="submit" />
+                <input type="submit" value={submitBtnText} />
             </form>
         </div>
     );
 };
 
-export default SimpleForm;
+export default ReusableForm;
